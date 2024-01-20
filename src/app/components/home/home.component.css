@@ -1,0 +1,19 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.main-body {
+  max-width: 90%;
+  mat-form-field {
+    width: 100%;
+  }
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+mat-paginator {
+
+}
+.test {
+  color: rgb(255, 251, 2);
+}
