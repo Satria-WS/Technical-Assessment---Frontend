@@ -21,6 +21,11 @@ export class AuthService {
     return this.http.get<User[]>(`${this.baseUrl}/users?email=${email}`);
   }
 
+  getUserByUser(username: string): Observable<User[]> {
+    return this.http.get<User[]>(`${this.baseUrl}/users?username=${username}`);
+  }
+
+
 
 
 

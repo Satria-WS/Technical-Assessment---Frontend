@@ -3,42 +3,25 @@
 
 <form [formGroup]="registerForm" (ngSubmit)="submitDetails()">
   <p-card header="Register" [style]="{ width: '360px' }">
-    <!-- <div class="field">
-      <label for="fullName">FullName</label>
+    <div class="field">
+      <label for="fullName">Username</label>
       <input
         type="text"
         pInputText
-        formControlName="fullNamex"
+        formControlName="username"
         class="w-full"
         name="fullName"
         placeholder="Type your name"
       />
       <small
-        *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)"
+        *ngIf="username.invalid && (username.dirty || username.touched)"
         class="block p-error"
       >
-        <div *ngIf="fullName.errors?.['required']">Name is required.</div>
-        <div *ngIf="fullName.errors?.['pattern']">Enter a valid Name</div>
-      </small>
-    </div> -->
-    <div class="field">
-      <label for="email">Email</label>
-      <input
-        type="text"
-        pInputText
-        formControlName="email"
-        class="w-full"
-        name="email"
-        placeholder="Type your email"
-      />
-      <small
-        *ngIf="email.invalid && (email.dirty || email.touched)"
-        class="block p-error"
-      >
-        <div *ngIf="email.errors?.['required']">Email is required.</div>
-        <div *ngIf="email.errors?.['email']">Email should be valid</div>
+        <div *ngIf="username.errors?.['required']">User name is required.</div>
+        <div *ngIf="username.errors?.['pattern']">Enter a valid Name</div>
       </small>
     </div>
+
     <div class="field">
       <label for="password">Password</label>
       <input

@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AuthService } from 'src/app/services/auth.service';
-import { usernameValidator } from 'src/app/validator/username';
+
 
 @Component({
   selector: 'app-login',
@@ -13,8 +13,8 @@ import { usernameValidator } from 'src/app/validator/username';
 export class LoginComponent {
   loginForm = this.fb.group({
 
-    email: ['', [Validators.required, Validators.email]],
-    // username:['',[Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]  ],
+
+    username:['',[Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]  ],
     password: ['', Validators.required]
   })
 
@@ -25,24 +25,22 @@ export class LoginComponent {
     private msgService: MessageService
   ) { }
 
-  // get username() {
-  //   return this.loginForm.controls['username'];
-  // }
-
-  get email() {
-    return this.loginForm.controls['email'];
+  get username() {
+    return this.loginForm.controls['username'];
   }
+
+
   get password() { return this.loginForm.controls['password']; }
 
   loginUser() {
-    const { email, password } = this.loginForm.value;
-    this.authService.getUserByEmail(email as string).subscribe(
+    const { username, password } = this.loginForm.value;
+    this.authService.getUserByUser(username as string).subscribe(
       response => {
         if (response.length > 0 && response[0].password === password) {
-          sessionStorage.setItem('email', email as string);
+          sessionStorage.setItem('username', username as string);
           this.router.navigate(['/home']);
         } else {
-          this.msgService.add({ severity: 'error', summary: 'Error', detail: 'email or password is wrong' });
+          this.msgService.add({ severity: 'error', summary: 'Error', detail: 'username or password is wrong' });
         }
       },
       error => {

@@ -12,7 +12,7 @@ import { CoreService } from '../services/core.service';
   styleUrls: ['./emp-add-edit.component.css'],
 })
 export class EmpAddEditComponent implements OnInit {
-  salary: number = 0;
+  // salary: number = 0;
   today: Date = new Date();
 
   myControl = new FormControl('');
